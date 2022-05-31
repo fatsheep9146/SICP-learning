@@ -154,4 +154,48 @@ Advanced Details in procedure definition
 )
 ```
 
-## 1.2 Procedures and the
+## 1.2 Procedures and the Processes They generate
+
+In this section, we will examine several conventional procedure patterns. 
+
+We will also investigate the rates at which these processes consume the important computational resources of time and space.
+
+### 1.2.1 Linear Recursion and Iteration
+
+Recursive process: 
+
+- the process which is characterized by a chain of deferred operations
+- this process requires that the interpreter keep track of the operations to be performed later on
+
+For example, following procedure is recursive process:
+
+```lisp
+(define (factorial n)
+	(if (= n 1)
+		1
+		(* (factorial (- n 1)))
+	)
+)
+```
+
+Iterative process: 
+
+- one whose state can be summarized by a fixed number of state variables, together with a fixed rule that describes how the state variables should be updated as the process moves from state to state and an (optional) end test that specifies conditions under which the process should terminate
+
+For example, following procedure is iterative process:
+
+```lisp
+(define (factorial n)
+	(fact-iter 1 1 n)
+)
+
+(define (fact-iter product counter max-count)
+	(if (> counter max-count)
+		product
+		(fact-iter (* product counter)
+							 (+ counter 1)	
+							 max-count							
+		)
+	)
+)
+```
