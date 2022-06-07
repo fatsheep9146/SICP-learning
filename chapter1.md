@@ -199,3 +199,13 @@ For example, following procedure is iterative process:
 	)
 )
 ```
+
+### 1.2.2 Tree Recursion 
+
+Tree recursion example code is Fibonacci numbers:
+
+```
+(define (fib n) 
+	(cond ((= n 0) 0) ((= n 1) 1)
+	(else (+ (fib (- n 1)) (fib (- n 2))))))
+```
